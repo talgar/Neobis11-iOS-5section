@@ -17,6 +17,7 @@
 		844A9DDC253A59C000245AFF /* StopWatchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A9DDB253A59C000245AFF /* StopWatchVC.swift */; };
 		844A9DDF253A59C600245AFF /* TimerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A9DDE253A59C600245AFF /* TimerVC.swift */; };
 		844A9DED253A5B9500245AFF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844A9DEC253A5B9500245AFF /* Main.storyboard */; };
+		84CBE668253B11C1008E39CF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBE667253B11C1008E39CF /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		844A9DDB253A59C000245AFF /* StopWatchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopWatchVC.swift; sourceTree = "<group>"; };
 		844A9DDE253A59C600245AFF /* TimerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerVC.swift; sourceTree = "<group>"; };
 		844A9DEC253A5B9500245AFF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		84CBE667253B11C1008E39CF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				844A9DBC253A560700245AFF /* SceneDelegate.swift */,
 				844A9DF1253A5D9000245AFF /* ViewControllers */,
 				844A9DEC253A5B9500245AFF /* Main.storyboard */,
+				84CBE667253B11C1008E39CF /* Constants.swift */,
 				844A9DD0253A576900245AFF /* Model.swift */,
 				844A9DC3253A560700245AFF /* Assets.xcassets */,
 				844A9DC5253A560700245AFF /* LaunchScreen.storyboard */,
@@ -164,6 +167,7 @@
 				844A9DBD253A560700245AFF /* SceneDelegate.swift in Sources */,
 				844A9DD4253A577500245AFF /* ToDoListVC.swift in Sources */,
 				844A9DD1253A576900245AFF /* Model.swift in Sources */,
+				84CBE668253B11C1008E39CF /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
