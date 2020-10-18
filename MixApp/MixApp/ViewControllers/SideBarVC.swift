@@ -24,8 +24,8 @@ class SideBarVC: UIViewController {
     @IBAction func didTapMenu(_ sender: Any) {
         
         if menuOut == false {
-            Leading.constant = 150
-            Trailing.constant = -150
+            Leading.constant = 250
+            Trailing.constant = -250
             menuOut = true
         } else {
             Leading.constant = 0
