@@ -10,6 +10,14 @@ import Foundation
 import UserNotifications
 import UIKit
 
+
+struct Constants {
+    private init(){}
+    static let myStoryboardID = "Main"
+    static let mainPageID = "MainPage"
+}
+
+
 var toDoItems: [[String: Any]] {
     set {
         UserDefaults.standard.set(newValue, forKey: "toDoDataKey")

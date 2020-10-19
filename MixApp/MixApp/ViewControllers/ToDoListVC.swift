@@ -10,6 +10,13 @@ import UIKit
 
 class ToDoListVC: UITableViewController {
     
+ 
+    @IBAction func backAction(_ sender: Any) {
+        
+        let toDoListStb = UIStoryboard(name: Constants.myStoryboardID, bundle: nil)
+        let toDoListVC = toDoListStb.instantiateViewController(identifier: Constants.mainPageID)
+        navigationController?.pushViewController(toDoListVC, animated: true)
+    }
     
     @IBAction func editAction(_ sender: Any) {
         tableView.setEditing(!tableView.isEditing, animated: true)
