@@ -8,9 +8,18 @@
 
 import UIKit
 
-class ToDoListVC: UITableViewController {
+class ToDoListVC: UITableViewController , UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        //ToDO
+    }
     
- 
+  let items = UserDefaults.standard.array(forKey: "toDoDataKey") as! [String]
+    let searchController = UISearchController(searchResultsController: nil)
+    var filteredItems 
+    var isSearchBarEmpty: Bool {
+      return searchController.searchBar.text?.isEmpty ?? true
+    }
+
     @IBAction func backAction(_ sender: Any) {
         
         let toDoListStb = UIStoryboard(name: Constants.myStoryboardID, bundle: nil)
@@ -49,12 +58,17 @@ class ToDoListVC: UITableViewController {
         present(alertController, animated: true, completion: nil)
     }
     
-       
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.tableFooterView = UIView()
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Items"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
        //tableView.backgroundColor = UIColor.groupTableViewBackground
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -99,7 +113,11 @@ class ToDoListVC: UITableViewController {
         return cell
     }
     
-
+    func filterContentForSearchText(_ searchText: String){
+        filteredItems = items.filter({ (<#String#>) -> Bool in
+            <#code#>
+        })
+    }
     
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

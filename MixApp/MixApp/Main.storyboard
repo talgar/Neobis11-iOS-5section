@@ -135,7 +135,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1949.2753623188407" y="-352.23214285714283"/>
+            <point key="canvasLocation" x="-3764" y="481"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="9hz-vD-cDW">
@@ -158,7 +158,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jNU-jd-ciK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2991" y="40"/>
+            <point key="canvasLocation" x="-2983" y="-352"/>
         </scene>
         <!--TimerVC-->
         <scene sceneID="w9i-JI-8if">
@@ -337,7 +337,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3df-lp-XG6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1949" y="417"/>
+            <point key="canvasLocation" x="-2204" y="481"/>
         </scene>
         <!--To Do ListVC-->
         <scene sceneID="noN-DX-tAR">
@@ -419,7 +419,7 @@
                         <sections>
                             <tableViewSection headerTitle="" id="Jz3-bO-3Kv">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="menuName " id="w1x-W6-xUi">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="menuName " id="w1x-W6-xUi">
                                         <rect key="frame" x="20" y="39.5" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="w1x-W6-xUi" id="aa3-hA-aWH">
@@ -707,7 +707,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z7a-m9-Jgh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="43" y="-351"/>
+            <point key="canvasLocation" x="242" y="-352"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FMt-Af-6cr">

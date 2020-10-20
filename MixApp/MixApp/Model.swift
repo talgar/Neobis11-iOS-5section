@@ -70,6 +70,7 @@ func setBadge( ) {
     UIApplication.shared.applicationIconBadgeNumber = totalBadgeNumber
 }
 
+
 extension Int {
     func timeString() -> String {
         let hours = Int(self) / 3600
