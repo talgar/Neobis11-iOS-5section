@@ -12,10 +12,10 @@ class ToDoListVC: UITableViewController , UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         //ToDO
     }
-    
-  let items = UserDefaults.standard.array(forKey: "toDoDataKey") as! [String]
+//    MARK: не могу присвоить значение toDoItems
+//  let items = toDoItems
+//    var filteredItems : [todoitems] = []
     let searchController = UISearchController(searchResultsController: nil)
-    var filteredItems 
     var isSearchBarEmpty: Bool {
       return searchController.searchBar.text?.isEmpty ?? true
     }
@@ -112,13 +112,14 @@ class ToDoListVC: UITableViewController , UISearchResultsUpdating {
         
         return cell
     }
-    
-    func filterContentForSearchText(_ searchText: String){
-        filteredItems = items.filter({ (<#String#>) -> Bool in
-            <#code#>
-        })
-    }
-    
+    //MARK: ошибка
+//    func filterContentForSearchText(_ searchText: String){
+//        filteredItems = items.filter({ ([String : Any]) -> Bool in
+//            return  items.lowercased()
+//                .contains(searchText.lowercased())
+//        })
+//    }
+//
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
