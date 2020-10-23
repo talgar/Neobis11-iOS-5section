@@ -10,16 +10,16 @@ import UIKit
 
 class ToDoListVC: UITableViewController , UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        //ToDO
+        let searchBar = searchController.searchBar
+        filterContentForSearchText(searchBar.text!)
     }
-//    MARK: не могу присвоить значение toDoItems
-//  let items = toDoItems
-//    var filteredItems : [todoitems] = []
+    
+    var filteredToDo = Items()
     let searchController = UISearchController(searchResultsController: nil)
     var isSearchBarEmpty: Bool {
       return searchController.searchBar.text?.isEmpty ?? true
     }
-
+    
     @IBAction func backAction(_ sender: Any) {
         
         let toDoListStb = UIStoryboard(name: Constants.myStoryboardID, bundle: nil)
@@ -86,14 +86,14 @@ class ToDoListVC: UITableViewController , UISearchResultsUpdating {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return toDoItems.count
+        return toDo.toDoItems.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
-        let currentItem = toDoItems[indexPath.row]
+        let currentItem = toDo.toDoItems[indexPath.row]
         cell.textLabel?.text = currentItem["Name"] as? String
         
         if (currentItem["isCompleted"] as? Bool) == true  {
@@ -112,14 +112,19 @@ class ToDoListVC: UITableViewController , UISearchResultsUpdating {
         
         return cell
     }
-    //MARK: ошибка
-//    func filterContentForSearchText(_ searchText: String){
-//        filteredItems = items.filter({ ([String : Any]) -> Bool in
-//            return  items.lowercased()
-//                .contains(searchText.lowercased())
-//        })
-//    }
-//
+    
+    var isFiltering: Bool {
+      return searchController.isActive && !isSearchBarEmpty
+    }
+    
+    func filterContentForSearchText(_ searchText: String) {
+        filteredToDo.toDoItems = toDo.toDoItems.filter({ (task: [String:Any] ) -> Bool in
+            return (task["Name"] as! String).lowercased().contains(searchText.lowercased())
+        })
+        tableView.reloadData()
+    }
+    
+    
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
@@ -171,7 +176,8 @@ class ToDoListVC: UITableViewController , UISearchResultsUpdating {
     override func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
         return false
     }
-
+    
+    
     /*
     // Override to support conditional rearranging of the table view.
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
