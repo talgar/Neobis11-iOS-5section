@@ -13,7 +13,7 @@ class ToDoListVC: UITableViewController , UISearchResultsUpdating {
         let searchBar = searchController.searchBar
         filterContentForSearchText(searchBar.text!)
     }
-    
+    var item : [String:Any] = [:]
     var filteredToDo = Items()
     let searchController = UISearchController(searchResultsController: nil)
     var isSearchBarEmpty: Bool {
@@ -67,6 +67,7 @@ class ToDoListVC: UITableViewController , UISearchResultsUpdating {
         searchController.searchBar.placeholder = "Search Items"
         navigationItem.searchController = searchController
         definesPresentationContext = true
+        tableView.reloadData()
        //tableView.backgroundColor = UIColor.groupTableViewBackground
         
 
@@ -84,8 +85,12 @@ class ToDoListVC: UITableViewController , UISearchResultsUpdating {
         return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+    override func tableView(_ tableView: UITableView,
+                   numberOfRowsInSection section: Int) -> Int {
+      if isFiltering {
+        return filteredToDo.toDoItems.count
+      }
+        
         return toDo.toDoItems.count
     }
 
@@ -93,15 +98,20 @@ class ToDoListVC: UITableViewController , UISearchResultsUpdating {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
-        let currentItem = toDo.toDoItems[indexPath.row]
-        cell.textLabel?.text = currentItem["Name"] as? String
         
-        if (currentItem["isCompleted"] as? Bool) == true  {
+        if isFiltering {
+            item = filteredToDo.toDoItems[indexPath.row]
+        } else {
+            item = toDo.toDoItems[indexPath.row]
+        }
+        
+        cell.textLabel?.text = item["Name"] as? String
+        if (item["isCompleted"] as? Bool) == true  {
             cell.imageView?.image = #imageLiteral(resourceName: "check")
         } else {
            cell.imageView?.image = #imageLiteral(resourceName: "uncheck")
         }
-        
+
         if tableView.isEditing {
             cell.textLabel?.alpha = 0.4
             cell.imageView?.alpha = 0.4
@@ -109,10 +119,10 @@ class ToDoListVC: UITableViewController , UISearchResultsUpdating {
             cell.textLabel?.alpha = 1
             cell.imageView?.alpha = 1
         }
-        
+
         return cell
     }
-    
+
     var isFiltering: Bool {
       return searchController.isActive && !isSearchBarEmpty
     }

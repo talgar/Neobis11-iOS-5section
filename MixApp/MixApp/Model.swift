@@ -36,12 +36,12 @@ class Items {
 var toDo = Items()
 func addItem(nameItem : String, isCompleted : Bool = false)  {
     toDo.toDoItems.append(["Name": nameItem, "isCompleted": isCompleted])
-    setBadge()
+   
 }
 
 func removeItem(at Index : Int) {
     toDo.toDoItems.remove(at: Index)
-    setBadge()
+    
 }
 
 func moveItem(fromIndex: Int, toIndex: Int) {
@@ -51,27 +51,9 @@ func moveItem(fromIndex: Int, toIndex: Int) {
 }
 func changeState(at item: Int) -> Bool {
     toDo.toDoItems[item]["isCompleted"] = !(toDo.toDoItems[item]["isCompleted"] as! Bool)
-    setBadge()
     return toDo.toDoItems[item]["isCompleted"] as! Bool
     
 }
-func requestForNotificstion( ) {
-    UNUserNotificationCenter.current().requestAuthorization(options: .badge) { (isEnabled, error) in
-    }
-}
-
-func setBadge( ) {
-    
-    var totalBadgeNumber = 0
-    for i in toDo.toDoItems {
-        if (i["isCompleted"] as? Bool) == false {
-            totalBadgeNumber += 1
-        }
-    }
-    
-    UIApplication.shared.applicationIconBadgeNumber = totalBadgeNumber
-}
-
 
 extension Int {
     func timeString() -> String {
