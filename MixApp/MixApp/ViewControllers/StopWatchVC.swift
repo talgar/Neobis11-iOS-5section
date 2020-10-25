@@ -10,6 +10,7 @@ import UIKit
 
 class StopWatchVC: UIViewController {
 
+    @IBOutlet weak var menuBtn: UIBarButtonItem!
     @IBOutlet weak var labelSW: UILabel!
     @IBOutlet weak var playPauseBtnSW: UIButton!
     
@@ -19,6 +20,19 @@ class StopWatchVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        sideMenu()
+    }
+    
+    // MARK: SideMenuFunc
+    func sideMenu() {
+        if revealViewController() != nil {
+            
+            menuBtn.target = revealViewController()
+            menuBtn.action = #selector(SWRevealViewController.revealToggle(_:))
+            revealViewController()?.rearViewRevealWidth = 300
+            
+            view.addGestureRecognizer((self.revealViewController()?.panGestureRecognizer())!)
+        }
     }
     
     @IBAction func playPauseActSW(_ sender: Any) {

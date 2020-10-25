@@ -10,6 +10,8 @@ import UIKit
 
 class TimerVC: UIViewController {
 
+    
+    @IBOutlet weak var menuBtn: UIBarButtonItem!
     @IBOutlet weak var sliderTimeT: UISlider!
     @IBOutlet weak var playPauseBtnT: UIButton!
     @IBOutlet weak var labelT: UILabel!
@@ -19,6 +21,19 @@ class TimerVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        sideMenu()
+    }
+    
+    // MARK: SideMenuFunc
+    func sideMenu() {
+        if revealViewController() != nil {
+            
+            menuBtn.target = revealViewController()
+            menuBtn.action = #selector(SWRevealViewController.revealToggle(_:))
+            revealViewController()?.rearViewRevealWidth = 300
+            
+            view.addGestureRecognizer((self.revealViewController()?.panGestureRecognizer())!)
+        }
     }
     
     @IBAction func playPauseActT(_ sender: Any) {

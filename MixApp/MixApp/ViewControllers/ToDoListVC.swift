@@ -13,18 +13,14 @@ class ToDoListVC: UITableViewController , UISearchResultsUpdating {
         let searchBar = searchController.searchBar
         filterContentForSearchText(searchBar.text!)
     }
+    
+    @IBOutlet weak var menuBtn: UIBarButtonItem!
+    
     var item : [String:Any] = [:]
     var filteredToDo = Items()
     let searchController = UISearchController(searchResultsController: nil)
     var isSearchBarEmpty: Bool {
       return searchController.searchBar.text?.isEmpty ?? true
-    }
-    
-    @IBAction func backAction(_ sender: Any) {
-        
-        let toDoListStb = UIStoryboard(name: Constants.myStoryboardID, bundle: nil)
-        let toDoListVC = toDoListStb.instantiateViewController(identifier: Constants.mainPageID)
-        navigationController?.pushViewController(toDoListVC, animated: true)
     }
     
     @IBAction func editAction(_ sender: Any) {
@@ -34,7 +30,6 @@ class ToDoListVC: UITableViewController , UISearchResultsUpdating {
         }
     }
     
-
     @IBAction func addAction(_ sender: Any) {
         let alertController = UIAlertController(title: "Create new item", message: nil, preferredStyle: .alert)
       
@@ -68,6 +63,7 @@ class ToDoListVC: UITableViewController , UISearchResultsUpdating {
         navigationItem.searchController = searchController
         definesPresentationContext = true
         tableView.reloadData()
+        sideMenu()
        //tableView.backgroundColor = UIColor.groupTableViewBackground
         
 
@@ -78,6 +74,18 @@ class ToDoListVC: UITableViewController , UISearchResultsUpdating {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
+    // MARK: SideMenuFunc
+    func sideMenu() {
+        if revealViewController() != nil {
+            
+            menuBtn.target = revealViewController()
+            menuBtn.action = #selector(SWRevealViewController.revealToggle(_:))
+            revealViewController()?.rearViewRevealWidth = 300
+            
+            view.addGestureRecognizer((self.revealViewController()?.panGestureRecognizer())!)
+        }
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -207,3 +215,6 @@ class ToDoListVC: UITableViewController , UISearchResultsUpdating {
     */
 
 }
+
+
+
