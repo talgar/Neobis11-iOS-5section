@@ -24,7 +24,6 @@ class AddItemsVC: UIViewController {
         if newName != "" {
             addItem(nameItem: newName!)
         }
-        saveData()
     }
 }
 

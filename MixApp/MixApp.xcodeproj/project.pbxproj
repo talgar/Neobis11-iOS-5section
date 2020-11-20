@@ -68,8 +68,7 @@
 		844A9DB9253A560700245AFF /* MixApp */ = {
 			isa = PBXGroup;
 			children = (
-				844A9DBA253A560700245AFF /* AppDelegate.swift */,
-				844A9DBC253A560700245AFF /* SceneDelegate.swift */,
+				848830F42567328500DD19D4 /* Resources */,
 				846313DC254F41CD00CAC47B /* Model */,
 				844A9DF1253A5D9000245AFF /* ViewControllers */,
 				844A9DEC253A5B9500245AFF /* Main.storyboard */,
@@ -100,6 +99,15 @@
 				844A9DD0253A576900245AFF /* Model.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		848830F42567328500DD19D4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				844A9DBA253A560700245AFF /* AppDelegate.swift */,
+				844A9DBC253A560700245AFF /* SceneDelegate.swift */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
